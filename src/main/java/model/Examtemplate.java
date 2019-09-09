@@ -22,13 +22,16 @@ public class Examtemplate implements Serializable {
 	private int id;
 
 	@Column(name="descriptionET")
-	private int descriptionET;
+	private String descriptionET;
 
 	@Column(name="isPublisher")
 	private byte isPublisher;
 	
+	@Column(name="dificulty")
+	private int dificulty;
+	
 	@OneToMany (mappedBy = "examtemplate", cascade = CascadeType.ALL)
-	private List<Question>question = new ArrayList<>();
+	private List<Question>question = new ArrayList<Question>();
 
 	public Examtemplate() {
 	}
@@ -41,11 +44,11 @@ public class Examtemplate implements Serializable {
 		this.id = id;
 	}
 
-	public int getDescriptionET() {
+	public String getDescriptionET() {
 		return this.descriptionET;
 	}
 
-	public void setDescriptionET(int descriptionET) {
+	public void setDescriptionET(String descriptionET) {
 		this.descriptionET = descriptionET;
 	}
 
@@ -57,4 +60,11 @@ public class Examtemplate implements Serializable {
 		this.isPublisher = isPublisher;
 	}
 
+	public int getDificulty() {
+		return dificulty;
+	}
+
+	public void setDificulty(int dificulty) {
+		this.dificulty = dificulty;
+	}
 }

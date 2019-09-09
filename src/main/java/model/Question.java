@@ -27,7 +27,7 @@ public class Question implements Serializable {
 	private String description;
 	
 	@OneToMany (mappedBy = "question", cascade = CascadeType.ALL)
-	private List<Responses>responses = new ArrayList<>();
+	private List<Responses>responses = new ArrayList<Responses>();
 	
 	@ManyToOne (fetch = FetchType.EAGER)
 	@JoinColumn (name = "id_examtemplate")
