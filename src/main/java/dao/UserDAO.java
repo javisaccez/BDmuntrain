@@ -1,14 +1,9 @@
 package dao;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
-import javax.persistence.TypedQuery;
 
 
 import model.User;
@@ -17,25 +12,22 @@ public class UserDAO {
 
 	EntityManagerFactory emf = Persistence.createEntityManagerFactory("BDmuntrain");
 	EntityManager manager = emf.createEntityManager();
-	User user = null;
 
-	public User login(User user) {
-		
-		user = null;
-
+	public boolean login (User user) {
+		boolean logger = false;
 		try {
-			
-			String jpql = "SELECT u FROM User p WHERE u.login = :login AND u.password = :precio ";
+			String jpql = "SELECT u FROM User u WHERE u.login = :login AND u.password = :password ";
 			Query query = manager.createQuery(jpql);
-			query.s("login",  );
-			query.setParameter("password", );
-		    
-		    user = query.getSingleResult();
+			query.setParameter("login", user.getLogin());
+			query.setParameter("password", user.getPassword());
+			query.getSingleResult();
 			manager.close();
+			logger = true;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return user;
+		
+		return logger;
 	}
 	
 	

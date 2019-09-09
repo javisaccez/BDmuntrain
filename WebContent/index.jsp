@@ -22,7 +22,7 @@
 					</div> --%>
 				
 					<div class = "form-group">
-						<input type="text" class="form-control" name="login" placeholder="Enter user name" value="${user.login}"/>
+						<input type="text" class="form-control" name="login" placeholder="Enter user login" value="${user.login}"/>
 					</div>
 				
 					<div class="form-group">
