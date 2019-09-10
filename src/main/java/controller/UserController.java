@@ -43,38 +43,21 @@ public class UserController extends HttpServlet {
 		User user = new User();
 		user.setLogin(request.getParameter("login"));
 		user.setPassword(request.getParameter("password"));
+		 
 
-		/*
-		 * if (theList.contains(user)) { request.setAttribute("NOTIFICATION",
-		 * "User Find Successfully!"); dispatcher =
-		 * request.getRequestDispatcher("/views/NewFile.jsp");
-		 * dispatcher.forward(request, response); } else { dispatcher =
-		 * request.getRequestDispatcher("/views/Register.jsp");
-		 * dispatcher.forward(request, response);
-		 * 
-		 * }
-		 */
-
-		if (userDAO.login(user) == false) {
-			dispatcher = request.getRequestDispatcher("/views/Register.jsp");
-			dispatcher.forward(request, response);
-		} else {
+		if (userDAO.login(user) == true) {
+			
 			request.setAttribute("NOTIFICATION", "User Find Successfully!");
 			dispatcher = request.getRequestDispatcher("/views/NewFile.jsp");
 			dispatcher.forward(request, response);
-		}
-
-		/*
-		 * if (id.isEmpty() || id == null)
-		 * 
-		 * { dispatcher = request.getRequestDispatcher("/views/Register.jsp");
-		 * dispatcher.forward(request, response);
-		 * 
-		 * } else { request.setAttribute("NOTIFICATION", "User Find Successfully!");
-		 * dispatcher = request.getRequestDispatcher("/views/NewFile.jsp");
-		 * dispatcher.forward(request, response); }
-		 */
+			
+		} else {
+				request.setAttribute("NOTIFICATION", "Error, user not found!");
+				dispatcher = request.getRequestDispatcher("/views/Register.jsp");
+				dispatcher.forward(request, response);
+			}
 
 	}
+	
 
 }

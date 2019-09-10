@@ -9,5 +9,6 @@
 </head>
 <body>
 	<p>Well done. Work achieved<p>
+	<p>${NOTIFICATION}</p>
 </body>
 </html>

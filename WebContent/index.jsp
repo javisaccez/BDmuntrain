@@ -17,10 +17,6 @@
 			<div class = "col-md-4">
 				<form action = "${pageContext.request.contextPath}/UserController" method="POST">
 				
-					<%-- <div class = "form-group">
-						<input type="text" class="form-control" name="email" placeholder="Enter email" value="${user.email}"/>
-					</div> --%>
-				
 					<div class = "form-group">
 						<input type="text" class="form-control" name="login" placeholder="Enter user login" value="${user.login}"/>
 					</div>
@@ -29,7 +25,7 @@
 					  	<input type="password" class="form-control" name="password" placeholder="Enter password" value="${user.password}"/>
 					</div>
 				
-					<%-- <input type="hidden" name="id" value="${user.id}"/> --%>
+					<input type="hidden" name="email" value="${user.email}"/> 
 				
 					<button type="submit" class="btn btn-primary">Send</button>
 				</form>

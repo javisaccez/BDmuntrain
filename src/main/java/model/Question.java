@@ -1,8 +1,6 @@
 package model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.*;
 
@@ -26,12 +24,6 @@ public class Question implements Serializable {
 	@Column(name = "description")
 	private String description;
 	
-	@OneToMany (mappedBy = "question", cascade = CascadeType.ALL)
-	private List<Responses>responses = new ArrayList<Responses>();
-	
-	@ManyToOne (fetch = FetchType.EAGER)
-	@JoinColumn (name = "id_examtemplate")
-	private Examtemplate examtemplate;
 
 	public Question() {
 	}
