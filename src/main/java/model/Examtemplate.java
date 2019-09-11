@@ -30,7 +30,8 @@ public class Examtemplate implements Serializable {
 	@Column(name="dificulty")
 	private int dificulty;
 	
-	@OneToMany (mappedBy = "examtemplate", cascade = CascadeType.ALL)
+	@OneToMany 
+	@JoinColumn(name="id_question")
 	private List<Question>question = new ArrayList<Question>();
 
 	public Examtemplate() {
