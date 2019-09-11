@@ -9,5 +9,34 @@
 </head>
 <body>
 	<p>RegistrateForastero<p>
+	<div class = "container">
+	
+		<h1>Login</h1>
+		<hr/>
+		
+		<div class = "row">
+			<div class = "col-md-4">
+				<form action = "${pageContext.request.contextPath}/RegisterController" method="POST">
+				
+					<div class = "form-group">
+						<input type="text" class="form-control" name="email" placeholder="Enter email" value="${user.email}"/>
+					</div>
+				
+					<div class = "form-group">
+						<input type="text" class="form-control" name="login" placeholder="Enter user name" value="${user.login}"/>
+					</div>
+				
+					<div class="form-group">
+					  	<input type="password" class="form-control" name="password" placeholder="Enter password" value="${user.password}"/>
+					</div>
+				
+					<%-- <input type="hidden" name="id" value="${user.id}"/> --%>
+				
+					<button type="submit" class="btn btn-primary">Send</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	
 </body>
 </html>

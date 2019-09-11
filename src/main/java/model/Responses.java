@@ -20,9 +20,9 @@ public class Responses implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column (name = "id")
 	private int id;
-	
+
 	@Column(name="descriptionR")
-	private int descriptionR;
+	private String descriptionR;
 
 	@Lob
 	@Column(name="image")
@@ -40,6 +40,12 @@ public class Responses implements Serializable {
 
 	public Responses() {
 	}
+	
+	public Responses(String descriptionR, byte value) {
+		super();
+		this.descriptionR = descriptionR;
+		this.value = value;
+	}
 
 	public int getId() {
 		return this.id;
@@ -49,11 +55,11 @@ public class Responses implements Serializable {
 		this.id = id;
 	}
 
-	public int getDescriptionR() {
+	public String getDescriptionR() {
 		return this.descriptionR;
 	}
 
-	public void setDescriptionR(int descriptionR) {
+	public void setDescriptionR(String descriptionR) {
 		this.descriptionR = descriptionR;
 	}
 

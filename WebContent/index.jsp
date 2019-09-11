@@ -15,7 +15,7 @@
 		
 		<div class = "row">
 			<div class = "col-md-4">
-				<form action = "${pageContext.request.contextPath}/UserController" method="POST">
+				<form action = "${pageContext.request.contextPath}/LoginController" method="POST">
 				
 					<%-- <div class = "form-group">
 						<input type="text" class="form-control" name="email" placeholder="Enter email" value="${user.email}"/>

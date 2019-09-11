@@ -24,18 +24,31 @@ public class Examtemplate implements Serializable {
 	@Column(name="descriptionET")
 	private String descriptionET;
 
+
 	@Column(name="isPublisher")
 	private byte isPublisher;
 	
 	@Column(name="dificulty")
 	private int dificulty;
 	
-	@OneToMany (mappedBy = "examtemplate", cascade = CascadeType.ALL)
-	private List<Question>question = new ArrayList<Question>();
+	@OneToMany (fetch = FetchType.EAGER)
+	@JoinColumn (name ="id_question")
+	private List<Question> question = new ArrayList<Question>();
 
 	public Examtemplate() {
 	}
 
+	public Examtemplate(String descriptionET) {
+		super();
+		this.descriptionET = descriptionET;
+	}
+	
+	public Examtemplate(int id, String descriptionET) {
+		super();
+		this.id = id;
+		this.descriptionET = descriptionET;
+	}
+	
 	public int getId() {
 		return this.id;
 	}
